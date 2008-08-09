@@ -34,7 +34,7 @@ public class ChessRules implements Rules<Game, Move, String> {
     return Game.INITIAL_STATE;
   }
   
-  public List<Move> getLegalMoves(Game game) {
+  public List<Move> getMoves(Game game) {
     List<Move> moves = new Vector<Move>();
     if (game.getMovesSincePawnOrCapture() > MAX_MOVES_SINCE_PAWN_OR_CAPTURE)
       return moves;
@@ -64,7 +64,7 @@ public class ChessRules implements Rules<Game, Move, String> {
     return ((game.getMoveCount() % 2) == 0) ? WHITE : BLACK;
   }
   
-  public String getTerminalState(Game game) {
+  public String getResult(Game game) {
     final Color colorToMove = getColorToMove(game);
     if (KingRules.isInCheck(game, colorToMove))
       return colorToMove.not().toString().toLowerCase() + " win";

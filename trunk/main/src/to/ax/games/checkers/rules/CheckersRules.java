@@ -20,10 +20,10 @@ public class CheckersRules implements Rules<Game, Move, String> {
   public Game getInitialGameState() {
     return null;
   }
-  public List<Move> getLegalMoves(Game game) {
+  public List<Move> getMoves(Game game) {
     return null;
   }
-  public String getTerminalState(Game game) {
+  public String getResult(Game game) {
     return null;
   }
   

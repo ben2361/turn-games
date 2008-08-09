@@ -11,7 +11,7 @@ import to.ax.games.chess.Square;
  */
 @SuppressWarnings("hiding")
 abstract public class RectangularBoard<Piece, Square> 
-    extends CachedHash<RectangularBoard<Piece, Square>>
+    extends CachedToString<RectangularBoard<Piece, Square>>
     implements Board<Piece, Square> {
   public RectangularBoard(Piece[][] board) {
     this.board = cloneBoard(board);
@@ -34,7 +34,7 @@ abstract public class RectangularBoard<Piece, Square>
   
   public void setPiece(int x, int y, Piece piece) { 
     board[x][y] = piece; 
-    clearHashCode();
+    invalidateToString();
   }
   
   private Piece[][] board;
