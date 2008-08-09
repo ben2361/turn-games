@@ -3,13 +3,13 @@
  */
 package to.ax.games.checkers;
 
-import to.ax.games.util.CachedHash;
+import to.ax.games.util.CachedToString;
 /**
  * @author Tom Ritchford (tom@swirly.com)
  * This is an immutable class.
  *
  */
-public class Game extends CachedHash<Game> {  
+public class Game extends CachedToString<Game> {  
   /** The checkers board. */
   private final Board board;
   

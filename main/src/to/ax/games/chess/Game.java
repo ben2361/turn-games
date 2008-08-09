@@ -8,7 +8,7 @@ import static to.ax.games.chess.Square.*;
 import java.util.EnumSet;
 
 import to.ax.games.converter.chess.GameToString;
-import to.ax.games.util.CachedHash;
+import to.ax.games.util.CachedToString;
 
 
 /**
@@ -26,7 +26,7 @@ import to.ax.games.util.CachedHash;
  * This is an immutable class.
  *
  */
-public class Game extends CachedHash<Game> {  
+public class Game extends CachedToString<Game> {  
   /** The chess board. */
   private final Board board;
   
