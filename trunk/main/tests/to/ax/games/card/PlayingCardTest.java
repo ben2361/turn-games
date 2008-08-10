@@ -4,9 +4,9 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 import static to.ax.games.card.PlayingCard.*;
-import static to.ax.games.card.PlayingCard.Color.*;
-import static to.ax.games.card.PlayingCard.Rank.*;
-import static to.ax.games.card.PlayingCard.Suit.*;
+import static to.ax.games.card.Rank.*;
+import static to.ax.games.card.Suit.*;
+import static to.ax.games.card.Suit.Color.*;
 
 /**
  * @author Tom Ritchford (tom@swirly.com)

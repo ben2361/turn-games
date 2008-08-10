@@ -1,5 +1,6 @@
 package to.ax.games.card;
 
+
 /**
  * See http://en.wikipedia.org/wiki/Playing_card#Anglo-American-French
  * 
@@ -27,33 +28,6 @@ public enum PlayingCard {
 ;
   public static final int DECK_SIZE = PlayingCard.values().length;
   
-  public enum Color { RED, BLACK; }
-
-  public enum Suit {
-    SPADE(Color.BLACK), HEART(Color.RED), CLUB(Color.BLACK), DIAMOND(Color.RED), 
-    ;
-
-    final Color color;    
-    Suit(Color color) { this.color = color; }
-    public Color color() { return color; }
-    
-    public PlayingCard of(Rank rank) {
-      return PlayingCard.values()[ordinal() + 4 * rank.ordinal()];
-    }
-    
-  }
-
-  public enum Rank { 
-    ACE { @Override public Rank previous()     { return TWO; } },
-    KING, QUEEN, JACK, TEN, NINE, EIGHT, SEVEN, SIX, FIVE, FOUR, THREE,  
-    TWO { @Override public Rank next() { return ACE; } }, 
-    ;
-
-    public Rank next()     { return values()[ordinal() + 1]; }
-    public Rank previous() { return values()[ordinal() - 1]; }
-    public PlayingCard of(Suit suit) { return suit.of(this); }
-  }
-
   private PlayingCard() {
     // This convenient trick relies on never changing any of the order of the enums above.
     this.rank = Rank.values()[ordinal() / 4];
@@ -119,6 +93,4 @@ public enum PlayingCard {
   public static final PlayingCard _2H = TWO_OF_HEARTS;         
   public static final PlayingCard _2C = TWO_OF_CLUBS;          
   public static final PlayingCard _2D = TWO_OF_DIAMONDS;       
-  
-  
 }
