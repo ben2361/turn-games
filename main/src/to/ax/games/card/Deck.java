@@ -9,7 +9,7 @@ import java.util.Set;
  */
 public class Deck<Card extends Enum<Card>> {
   public Deck(EnumSet<Card> cards) {
-    this.cards = cards;
+    this.cards = cards.clone();
   }
   
   private final Set<Card> cards;
