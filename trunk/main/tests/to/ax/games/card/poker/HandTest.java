@@ -17,6 +17,7 @@ import static to.ax.games.card.PlayingCard.*;
  * @author Tom Ritchford (tom@swirly.com)
  *
  */
+@SuppressWarnings("unchecked")  // doTestCategories breaks provable genericity, but this is fine.
 public class HandTest extends TestCase {
   public void doTestCategories(
       Category category, EnumSet<PlayingCard> cards, EnumSet<PlayingCard> ...expectedFeatures) {

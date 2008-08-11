@@ -17,6 +17,7 @@ import to.ax.games.chess.Game;
 import to.ax.games.chess.Move;
 import to.ax.games.chess.Piece;
 import to.ax.games.util.Color;
+import to.ax.games.util.IsMoveValid;
 
 
 /**
@@ -32,6 +33,10 @@ public class ChessRules implements Rules<Game, Move, String> {
   
   public Game getInitialGameState() {
     return Game.INITIAL_STATE;
+  }
+  
+  public boolean isMoveValid(Game gameState, Move move) {
+    return IsMoveValid.isMoveValid(gameState, move, this);
   }
   
   public List<Move> getMoves(Game game) {
@@ -54,6 +59,10 @@ public class ChessRules implements Rules<Game, Move, String> {
       }
     }
     return moves;
+  }
+  
+  public boolean validateMove(Game gameState, Move move) {
+    return getMoves(gameState).contains(move);
   }
   
   public Game applyMove(Game game, Move move) {
