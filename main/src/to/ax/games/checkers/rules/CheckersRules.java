@@ -8,6 +8,7 @@ import to.ax.games.checkers.Game;
 import to.ax.games.checkers.Move;
 import to.ax.games.checkers.Piece;
 import to.ax.games.checkers.Square;
+import to.ax.games.util.IsMoveValid;
 
 /**
  * @author Tom Ritchford (tom@swirly.com)
@@ -25,6 +26,10 @@ public class CheckersRules implements Rules<Game, Move, String> {
   }
   public String getResult(Game game) {
     return null;
+  }
+  
+  public boolean isMoveValid(Game gameState, Move move) {
+    return IsMoveValid.isMoveValid(gameState, move, this);
   }
   
   public static Board getInitialBoard(Variant variant) {

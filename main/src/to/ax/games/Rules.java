@@ -1,5 +1,9 @@
 package to.ax.games;
 
+import java.awt.Container;
+import java.util.Collection;
+import java.util.Set;
+
 /** Generic rules for turn-based games.
  * 
  * Informally, a turn-based game is a game whose rules are essentially time-
@@ -33,10 +37,23 @@ package to.ax.games;
  * */
 
 public interface Rules<GameState, Move, Result> {
+  /** @return the unique initial game state.  This might well be a singleton if the GameState is
+   * an immutable class. */
   GameState getInitialGameState();    
+  
+  /** There are two distinct ways to "get legal moves":  the first one is to return an explicit
+   * list of the legal moves;  the second is to provide a way of validating a Move that is given to
+   * you.  I'm providing both;  you can use the first one to make the second;  we'll see later if
+   * we need to split these functionalities more decisively. */
   Iterable<Move> getMoves(GameState gameState);
+  
+  /** @return true if a given move is valid for a given game. */
+  boolean isMoveValid(GameState gameState, Move move);
+  
+  /** Given a GameState and a legal move for that Game state, return a GameState representing
+   * the new state of the game after the move has been applied. */
   GameState applyMove(GameState gameState, Move move);
-
+  
   // If getLegalMoves(game) is empty, then you can call getResult().
   Result getResult(GameState gameState);
 }
