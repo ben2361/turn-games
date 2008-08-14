@@ -21,14 +21,14 @@ public class CheckersRules implements Rules<Game, Move, String> {
   public Game getInitialGameState() {
     return null;
   }
-  public List<Move> getMoves(Game game) {
+  public List<Move> getLegalMoves(Game game) {
     return null;
   }
   public String getResult(Game game) {
     return null;
   }
   
-  public boolean isMoveValid(Game gameState, Move move) {
+  public boolean isMoveLegal(Game gameState, Move move) {
     return IsMoveValid.isMoveValid(gameState, move, this);
   }
   

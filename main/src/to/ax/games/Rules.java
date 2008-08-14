@@ -1,8 +1,5 @@
 package to.ax.games;
 
-import java.awt.Container;
-import java.util.Collection;
-import java.util.Set;
 
 /** Generic rules for turn-based games.
  * 
@@ -45,15 +42,15 @@ public interface Rules<GameState, Move, Result> {
    * list of the legal moves;  the second is to provide a way of validating a Move that is given to
    * you.  I'm providing both;  you can use the first one to make the second;  we'll see later if
    * we need to split these functionalities more decisively. */
-  Iterable<Move> getMoves(GameState gameState);
+  Iterable<Move> getLegalMoves(GameState gameState);
   
   /** @return true if a given move is valid for a given game. */
-  boolean isMoveValid(GameState gameState, Move move);
+  boolean isMoveLegal(GameState gameState, Move move);
   
   /** Given a GameState and a legal move for that Game state, return a GameState representing
    * the new state of the game after the move has been applied. */
   GameState applyMove(GameState gameState, Move move);
   
-  // If getLegalMoves(game) is empty, then you can call getResult().
+  /** @returns the Result of the game if the game is finished, else null. */
   Result getResult(GameState gameState);
 }

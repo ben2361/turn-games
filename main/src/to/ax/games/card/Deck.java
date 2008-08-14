@@ -14,7 +14,7 @@ public class Deck<Card extends Enum<Card>> {
   
   private final Set<Card> cards;
   
-  protected Card deal(RandomIntegerGenerator randomIntegerGenerator) {
+  public Card deal(RandomIntegerGenerator randomIntegerGenerator) {
     final int size = cards.size();
     if (size == 0)
       return null;

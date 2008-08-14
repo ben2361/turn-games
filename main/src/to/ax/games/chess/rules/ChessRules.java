@@ -35,11 +35,11 @@ public class ChessRules implements Rules<Game, Move, String> {
     return Game.INITIAL_STATE;
   }
   
-  public boolean isMoveValid(Game gameState, Move move) {
+  public boolean isMoveLegal(Game gameState, Move move) {
     return IsMoveValid.isMoveValid(gameState, move, this);
   }
   
-  public List<Move> getMoves(Game game) {
+  public List<Move> getLegalMoves(Game game) {
     List<Move> moves = new Vector<Move>();
     if (game.getMovesSincePawnOrCapture() > MAX_MOVES_SINCE_PAWN_OR_CAPTURE)
       return moves;
@@ -62,7 +62,7 @@ public class ChessRules implements Rules<Game, Move, String> {
   }
   
   public boolean validateMove(Game gameState, Move move) {
-    return getMoves(gameState).contains(move);
+    return getLegalMoves(gameState).contains(move);
   }
   
   public Game applyMove(Game game, Move move) {

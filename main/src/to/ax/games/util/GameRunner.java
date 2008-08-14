@@ -24,7 +24,7 @@ public class GameRunner  {
       MoveSelector<Game, Move, Result> moveSelector) {
     Game game_state = rules.getInitialGameState();
     while (true) {
-      Iterable<Move> moves = rules.getMoves(game_state); 
+      Iterable<Move> moves = rules.getLegalMoves(game_state); 
       if (!moves.iterator().hasNext())
         return rules.getResult(game_state);
       Move move = moveSelector.selectNextMove(moves);

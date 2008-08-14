@@ -11,7 +11,7 @@ import to.ax.games.Rules;
 public class IsMoveValid {
   public static <GameState, Move, Result> 
   boolean isMoveValid(GameState gameState, Move move, Rules<GameState, Move, Result> rules) {
-    return isItemInIterable(move, rules.getMoves(gameState));
+    return isItemInIterable(move, rules.getLegalMoves(gameState));
   }
 
   public static <Item> boolean isItemInIterable(Item move, Iterable<Item> moves) {
