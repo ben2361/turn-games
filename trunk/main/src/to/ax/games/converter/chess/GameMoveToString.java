@@ -28,7 +28,7 @@ public class GameMoveToString implements Converter.TwoWay<Move, String>{
   protected final Game game;
   public GameMoveToString(Game game) {
     this.game = game;
-    this.moves = ChessRules.INSTANCE.getMoves(game);
+    this.moves = ChessRules.INSTANCE.getLegalMoves(game);
   }
 
   public Converter<Move, String> getConvertFromTo() { return writer; }  
