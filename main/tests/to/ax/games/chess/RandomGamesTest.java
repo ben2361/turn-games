@@ -27,7 +27,7 @@ public class RandomGamesTest extends TestCase {
   private int dotCount;
   
   public Move getRandomLegalMove(Game game) {
-    final List<Move> moves = ChessRules.INSTANCE.getMoves(game);
+    final List<Move> moves = ChessRules.INSTANCE.getLegalMoves(game);
     final int size = moves.size();
     if (size == 0)
       return null;

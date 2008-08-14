@@ -13,7 +13,7 @@ import to.ax.games.chess.Move;
 public class ChessRulesTest extends TestCase {  
   public void testPrintAllSecondMoves() {
     Game game = Game.INITIAL_STATE;
-    List<Move> moves = ChessRules.INSTANCE.getMoves(game);
+    List<Move> moves = ChessRules.INSTANCE.getLegalMoves(game);
     System.out.println(moves.size());
     for (Move move: moves) {
       //final Game applyMove = 
